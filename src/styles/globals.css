@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #00f6ff;
+  --secondary: #7000ff;
+  --background: #050816;
+  --text: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.glow {
+  filter: drop-shadow(0 0 0.75rem var(--primary));
+}
+
+.grid-background {
+  background-image: 
+    linear-gradient(rgba(5, 8, 22, 0.9) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5, 8, 22, 0.9) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.glowing-border {
+  position: relative;
+}
+
+.glowing-border::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  z-index: -1;
+  filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.glowing-border:hover::after {
+  opacity: 1;
+}
+
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.2s ease;
+}
+
+.custom-cursor.hover {
+  transform: scale(1.5);
+  background-color: rgba(0, 246, 255, 0.1);
+}
