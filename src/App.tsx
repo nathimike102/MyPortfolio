@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import Background from './components/Background';
 import ParticleBackground from './components/ParticleBackground';
 import LoadingScreen from './components/LoadingScreen';
 
@@ -23,7 +24,8 @@ function App() {
       {loading ? (
         <LoadingScreen />
       ) : (
-        <div className="min-h-screen bg-background">
+        <div className="relative min-h-screen bg-background">
+          <Background/>
           <ParticleBackground />
           <Navigation />
           <Hero />

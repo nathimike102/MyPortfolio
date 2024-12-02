@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Send } from 'lucide-react';
+import { Card } from './ui/Card';
+import { Section } from './ui/Section';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
@@ -30,20 +32,20 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-800" id="contact">
-      <div className="container mx-auto px-4 max-w-2xl">
+    <Section id="contact" className="bg-background-secondary">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+          <h2 className="text-4xl font-bold text-center mb-12 neon-text">
             Get in Touch
           </h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="name" className="text-xl font-semibold mb-2 text-primary">
                 Name
               </label>
               <input
@@ -56,7 +58,7 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="email" className="text-xl font-semibold mb-2 text-primary">
                 Email
               </label>
               <input
@@ -69,7 +71,7 @@ const Contact = () => {
               />
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              <label htmlFor="message" className="text-xl font-semibold mb-2 text-primary">
                 Message
               </label>
               <textarea
@@ -106,7 +108,7 @@ const Contact = () => {
           </form>
         </motion.div>
       </div>
-    </section>
+    </Section>
   );
 };
 
