@@ -1,6 +1,6 @@
 import { Card } from './ui/Card';
 import { Section } from './ui/Section';
-import { Code2, Database, Layout, Server, Smartphone, Terminal } from 'lucide-react';
+import { Code2, Database, Layout, Server, Smartphone, Cloud, Brain, GitBranch, Monitor, Tool } from 'lucide-react';
 
 const skills = [
   {
@@ -16,22 +16,37 @@ const skills = [
   {
     category: 'Backend Development',
     icon: <Server className="h-6 w-6" />,
-    items: ['Node.js', 'Express.js', 'FastAPI', 'Firebase'],
+    items: ['Node.js', 'Express.js', 'FastAPI', 'Flask'],
   },
   {
     category: 'Database',
     icon: <Database className="h-6 w-6" />,
-    items: ['MongoDB', 'MariaDB', 'MySQL', 'Firebase'],
+    items: ['MongoDB', 'MariaDB', 'MySQL'],
+  },
+  {
+    category: 'Cloud Services',
+    icon: <Cloud className="h-6 w-6" />,
+    items: ['AWS', 'Azure', 'Google Cloud', 'Firebase'],
+  },
+  {
+    category: 'Version Control',
+    icon: <GitBranch className="h-6 w-6" />,
+    items: ['Git', 'GitHub', 'GitLab', 'Bitbucket'],
+  },
+  {
+    category: 'Development Tools',
+    icon: <Monitor className="h-6 w-6" />,
+    items: ['VS Code', 'IntelliJ', 'Linux', 'Docker'],
+  },
+  {
+    category: 'AI & Machine Learning',
+    icon: <Brain className="h-6 w-6" />,
+    items: ['TensorFlow', 'PyTorch', 'OpenAI'],
   },
   {
     category: 'Mobile Development',
     icon: <Smartphone className="h-6 w-6" />,
     items: ['React Native', 'Android', 'Flutter'],
-  },
-  {
-    category: 'Tools & Technologies',
-    icon: <Terminal className="h-6 w-6" />,
-    items: ['Git', 'VS Code', 'Linux', 'Docker'],
   },
 ];
 
