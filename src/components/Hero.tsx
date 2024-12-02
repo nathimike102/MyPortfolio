@@ -4,7 +4,7 @@ import SocialLinks from './SocialLinks';
 
 const Hero = () => {
   return (
-    <div className="min-h-screen relative flex items-center justify-center overflow-hidden">
+    <div id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden">
       <div className="grid-background absolute inset-0 opacity-20" />
       <div className="container mx-auto px-4 z-10">
         <motion.div

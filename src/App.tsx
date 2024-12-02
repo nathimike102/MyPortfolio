@@ -8,6 +8,7 @@ import Background from './components/Background';
 import ParticleBackground from './components/ParticleBackground';
 import LoadingScreen from './components/LoadingScreen';
 
+
 function App() {
   const [loading, setLoading] = useState(true);
 
