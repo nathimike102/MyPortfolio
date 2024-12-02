@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import SocialLinks from './SocialLinks';
@@ -15,7 +14,7 @@ const Hero = () => {
           className="text-center"
         >
           <motion.h1
-            className="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary"
+            className="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-grey-300"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -28,7 +27,7 @@ const Hero = () => {
               sequence={[
                 'Software Engineering Student',
                 2000,
-                'Full Stack Developer',
+                'Competetive Programmer',
                 2000,
                 'Tech Enthusiast',
                 2000,
@@ -45,8 +44,13 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            Passionate about creating innovative solutions and exploring new technologies.
-            Specializing in web development and software engineering.
+            I am a trainee at Technical Hub, a company that provides IT solutions and training to various clients and sectors. 
+            I joined the company in October 2023, after completing the Shasha Network program, which helped me prepare for university and develop my personal and professional skills. 
+            I am currently pursuing a B.Tech degree in Computer Science Engineering at Aditya University, where I am learning the fundamentals of computer engineering and applying them to real-world problems. 
+            I have a keen interest in programming, which I use to create efficient and reliable software solutions. 
+            I also have a passion for community outreach, which I demonstrate by volunteering for various social and environmental causes. 
+            My goal is to become a competent and responsible computer engineer who can contribute to the development and innovation of the IT industry and the society at large.
+  
           </motion.p>
 
           <motion.div
