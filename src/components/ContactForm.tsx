@@ -40,7 +40,7 @@ const ContactForm = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <form onSubmit={handleSubmit} className="space-y-3 max-w-xl mx-auto">
+          <form onSubmit={handleSubmit} className="space-y-3 max-w-3xl mx-auto">
             <div >
               <label htmlFor="name" className="flex items-center gap-2 text-xl font-semibold mb-2 text-primary">
                 <User className="w-4 h-4" />
