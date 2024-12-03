@@ -1,6 +1,6 @@
 import { Card } from './ui/Card';
 import { Section } from './ui/Section';
-import { Code2, Database, Layout, Server, Smartphone, Cloud, Brain, GitBranch, Monitor, Tool } from 'lucide-react';
+import { Code2, Database, Layout, Server, Smartphone, Cloud, Brain, GitBranch, Monitor} from 'lucide-react';
 
 const skills = [
   {
