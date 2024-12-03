@@ -1,22 +1,24 @@
 import { Card } from './ui/Card';
 import { Section } from './ui/Section';
 import { Github, ExternalLink } from 'lucide-react';
+import skillcon from './images/skilcon_pic.jpeg'
 
 const projects = [
   {
-    title: 'Smart Campus Management System',
-    description: 'A comprehensive platform for managing university resources, student attendance, and course materials.',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4',
-    tech: ['React', 'Node.js', 'MongoDB', 'Firebase'],
-    github: 'https://github.com/nathimike102/smart-campus',
-    demo: 'https://smart-campus-demo.netlify.app'
+    title: 'SkillCon AI-Powered Volunteer Matching Platform.',
+    description: 'An intelligent platform that connects volunteers with organizations based on their skills and interests.',
+    image: {skillcon},
+    tech: ['React', 'Node.js', 'Tailwind CSS/HTML5', 'Firebase'],
+    github: 'https://github.com/nathimike102/SkillCon',    
+    demo: 'https://skillcon.vercel.app'
   },
+  //was now here
   {
-    title: 'AI-Powered Study Assistant',
-    description: 'An intelligent application that helps students organize their study materials and create personalized learning paths.',
+    title: 'Finance Portfolio Management System',
+    description: 'Built a comprehensive portfolio management system to track, buy, and sell stocks by integrating real-time stock price data through API calls.',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3',
-    tech: ['React', 'Python', 'TensorFlow', 'Flask'],
-    github: 'https://github.com/nathimike102/study-assistant',
+    tech: ['Python', 'SQL', 'Flask', 'HTML/CSS'],
+    github: 'https://github.com/nathimike102/finance', 
     demo: 'https://study-assistant-demo.netlify.app'
   },
   {

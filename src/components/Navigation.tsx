@@ -6,12 +6,12 @@ import { Menu, X , Home, Briefcase, Code, Mail} from 'lucide-react';
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = ['hero', 'projects', 'skills', 'contact'];
+      const sections = ['home', 'projects', 'skills', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -28,7 +28,7 @@ const Navigation = () => {
   }, []);
 
   const menuItems = [
-    { name: 'Home', to: 'hero', icon : Home},
+    { name: 'Home', to: 'home', icon : Home},
     { name: 'Projects', to: 'projects', icon : Briefcase},
     { name: 'Skills', to: 'skills', icon : Code},
     { name: 'Contact', to: 'contact', icon : Mail}
