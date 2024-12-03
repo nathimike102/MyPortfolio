@@ -1,15 +1,26 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { AnimatePresence, motion} from 'framer-motion';
+import { Menu, X , Home, Briefcase, Code, Mail} from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      const sections = ['hero', 'projects', 'skills', 'contact'];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -17,42 +28,18 @@ const Navigation = () => {
   }, []);
 
   const menuItems = [
-    { name: 'Home', to: 'hero' },
-    { name: 'Projects', to: 'projects' },
-    { name: 'Skills', to: 'skills' },
-    { name: 'Contact', to: 'contact' }
+    { name: 'Home', to: 'hero', icon : Home},
+    { name: 'Projects', to: 'projects', icon : Briefcase},
+    { name: 'Skills', to: 'skills', icon : Code},
+    { name: 'Contact', to: 'contact', icon : Mail}
   ];
-
-  const menuVariants = {
-    closed: {
-      opacity: 0,
-      x: "100%",
-      transition: {
-        staggerChildren: 0.1,
-        staggerDirection: -1
-      }
-    },
-    open: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    closed: { opacity: 0, x: 50 },
-    open: { opacity: 1, x: 0 }
-  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${
-      scrolled ? 'bg-white/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      scrolled ? 'bg-white/0.5 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
+      <div className=" max-w-12xl mx-auto sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 ">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -61,69 +48,74 @@ const Navigation = () => {
             NMS
           </motion.div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
-            {menuItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                className="cursor-pointer text-gray-600 hover:text-blue-500 transition-colors relative group"
-              >
-                {item.name}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-              </Link>
-            ))}
-          </div>
+          <div className="hidden md:flex items-baseline space-x-8 ">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                  className={`cursor-pointer card-hover flex items-center px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                    activeSection === item.to
+                      ? 'bg-indigo-600 text-white'
+                      : 'glass-effect text-gray-400 hover:bg-indigo-100'
+                  }`}
+                >
+                  <item.icon className="w-4 h-4 mr-2" />
+                  {item.name}
+                </Link>
+              ))}
+          </div>          
 
-          {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-600 hover:text-gray-900 focus:outline-none"
-          >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-indigo-100 focus:outline-none"
+            >
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
           </motion.button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial="closed"
-            animate="open"
-            exit="closed"
-            variants={menuVariants}
-            className="fixed inset-y-0 right-0 w-64 bg-white dark:bg-gray-800 shadow-lg md:hidden"
+        <motion.div 
+          initial="closed"
+          animate="open"
+          exit="closed"
+          className="bg-transparent block fixed inset-y-12 right-0 w-64 bg-white/0.5 shadow-lg md:hidden"
           >
-            <div className="flex flex-col py-16">
-              {menuItems.map((item) => (
-                <motion.div
-                  key={item.to}
-                  variants={itemVariants}
-                  whileHover={{ x: 10 }}
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+            {menuItems.map((item) => (
+              <motion.div
+                key={item.to}
+                whileHover={{x: 10}}
                 >
-                  <Link
-                    to={item.to}
-                    spy={true}
-                    smooth={true}
-                    offset={-70}
-                    duration={500}
-                    className="block px-8 py-4 text-gray-600 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                <Link
+                  to={item.to}
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}   
+                  className={`cursor-pointer card-hover flex items-center px-3 py-2 rounded-md text-sm font-medium ${
+                    activeSection === item.to
+                      ? 'bg-indigo-600 text-white'
+                      : 'glass-effect text-gray-400 hover:bg-indigo-100'
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  <item.icon className="w-4 h-4 mr-2" />
+                  {item.name}
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
         )}
       </AnimatePresence>
+
     </nav>
   );
 };

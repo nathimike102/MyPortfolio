@@ -32,7 +32,7 @@ const Contact = () => {
           <p className="text-gray-400 max-w-2xl mb-6 mx-auto">
             Have a question or want to work together? Drop me a message, and I'll get back to you as soon as possible.
           </p>
-          <div className="grid md:grid-cols-3 gap-8 mb-12 max-w-xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-4 mb-12 max-w-3xl mx-auto px-12">
             {contactInfo.map((info, index) => (
               <Card key = {index}>
                 <div className="flex flex-col items-center text-center">
@@ -53,7 +53,7 @@ const Contact = () => {
               </Card>
             ))}
           </div>
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8">
+          <div className="bg-white/0.5 backdrop-blur-sm rounded-xl p-8">
             <ContactForm/>
           </div>
         </div>
