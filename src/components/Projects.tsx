@@ -1,24 +1,24 @@
 import { Card } from './ui/Card';
 import { Section } from './ui/Section';
 import { Github, ExternalLink } from 'lucide-react';
-import skillcon from './images/skilcon_pic.jpeg'
+import skillcon from './images/skillcon_pic.jpeg';
+import finance from './images/finance_pic.jpg';
 
 const projects = [
   {
     title: 'SkillCon AI-Powered Volunteer Matching Platform.',
     description: 'An intelligent platform that connects volunteers with organizations based on their skills and interests.',
-    image: {skillcon},
+    image: skillcon,
     tech: ['React', 'Node.js', 'Tailwind CSS/HTML5', 'Firebase'],
     github: 'https://github.com/nathimike102/SkillCon',    
     demo: 'https://skillcon.vercel.app'
   },
-  //was now here
   {
     title: 'Finance Portfolio Management System',
-    description: 'Built a comprehensive portfolio management system to track, buy, and sell stocks by integrating real-time stock price data through API calls.',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3',
+    description: 'A system to track, buy, and sell stocks by integrating real-time stock price data through API calls.',
+    image: finance,
     tech: ['Python', 'SQL', 'Flask', 'HTML/CSS'],
-    github: 'https://github.com/nathimike102/finance', 
+    github: 'https://github.com/nathimike102/CS50-Harvard/tree/main/finance', 
     demo: 'https://study-assistant-demo.netlify.app'
   },
   {
